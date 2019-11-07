@@ -10,8 +10,7 @@ end
 use Rack::MethodOverride
 #use Rack::Session::Pool
 
-#
+# mount controllers
 use TweetsController
 use UsersController
-#
 run ApplicationController

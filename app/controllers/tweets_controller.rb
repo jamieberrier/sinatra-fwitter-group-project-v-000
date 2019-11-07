@@ -44,10 +44,10 @@ class TweetsController < ApplicationController
   end
 
   get '/tweets/:id/edit' do
-    #@tweet = Tweet.find(params[:id])
+    @tweet = Tweet.find(params[:id])
 
-    if logged_in? #@tweet.user_id == current_user.id #authorized_to_edit?(@tweet)
-      @tweet = Tweet.find(params[:id])
+    if logged_in? && current_user == @tweet.user #@tweet.user_id == current_user.id #authorized_to_edit?(@tweet)
+      #@tweet = Tweet.find(params[:id])
       erb :'/tweets/edit_tweet'
     #elsif @tweet.user_id != current_user.id #!authorized_to_edit?(@tweet)
     #  flash[:message] = "You don't have permission to edit that tweet."
